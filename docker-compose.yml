@@ -1,0 +1,14 @@
+services:
+  db:
+    container_name: demo-db
+    image: cockroachdb/cockroach:v23.2.3
+    environment:
+      COCKROACH_DATABASE: "demo"
+    command: start-single-node --insecure
+    ports:
+      - "26666:26257"
+    volumes:
+      - "cockroach_demo_data:/cockroach/cockroach-data"
+
+volumes:
+  cockroach_demo_data:
